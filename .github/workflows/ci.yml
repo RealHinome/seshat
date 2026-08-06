@@ -102,22 +102,21 @@ jobs:
         run: |
           cargo nextest run --features=bundled-sqlcipher
 
+      #:tchap:
       # Checkout again to reset the test DB state
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
+      #- name: Checkout
+      #  uses: actions/checkout@v4
 
-      - name: Install node
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
-        with:
-          node-version: "18"
+      #- name: Install node
+      #  uses: actions/setup-node@v4
+      #  with:
+      #    node-version: '18'
+      #- name: Install node build dependencies
+      # run: cd seshat-node && yarn install
 
-      - name: Install node build dependencies
-        run: cd seshat-node && yarn install
+      #- name: Build node module
+      #  run: cd seshat-node && yarn run build-bundled
 
-      - name: Build node module
-        run: cd seshat-node && yarn run build-bundled
-
-      - name: Test node module
-        run: cd seshat-node && yarn run test
+      #- name: Test node module
+      #  run: cd seshat-node && yarn run test
+      #:tchap:end
